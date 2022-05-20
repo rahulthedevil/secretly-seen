@@ -1,0 +1,45 @@
+{
+  "name": "Secretly Seen",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "description": "Block Seen feature on Social Media Message.",
+  "icons": {
+    "16": "images/16X16.png",
+    "48": "images/48X48.png",
+    "128": "images/128X128.png"
+  },
+  "action": {
+    "default_popup": "ext.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "injector.js"
+      ],
+      "matches": [
+        "https://*.facebook.com/*",
+        "https://*.messenger.com/*"
+      ]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' ; object-src 'self'"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "all_frames": false,
+      "css": [],
+      "js": [
+        "content.js"
+      ],
+      "matches": [
+        "https://*.facebook.com/*",
+        "https://*.messenger.com/*"
+      ],
+      "run_at": "document_end"
+    }
+  ]
+}
